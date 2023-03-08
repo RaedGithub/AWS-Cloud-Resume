@@ -48,10 +48,10 @@
 				<div id="sidepanel-section-title">Reach me here<br>
 					<a href="#" class="cryptedmail"
 						data-name="raed"
-						data-surname="deara"
-						data-domain="outlook"
-						data-tld="com"
-						onclick="window.location.href = 'mailto:' + this.dataset.name + '.' + this.dataset.surname + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;">
+						data-surname="6"
+						data-domain="hotmail"
+						data-tld="co.uk"
+						onclick="window.location.href = 'mailto:' + this.dataset.name + '_' + this.dataset.surname + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;">
 					</a>
 				</div>
 				<div id="sidepanel-section-title">
@@ -66,6 +66,28 @@
 			</div>
 			<div id="info-pages">
 				<div class="page">
+					<body onload="updateCounter()">
+
+						<script>
+							  function updateCounter(){
+								  fetch('https://go9gn0766m.execute-api.us-east-1.amazonaws.com/prod/',{
+									  method: 'GET'
+								  })
+								.then(response => {
+								  if (
+									  response.ok 
+								  ) {
+									return response.json()
+								  } else {
+									throw new Error('Sorry, something went wrong');
+								  }
+								})
+								.then(data => document.getElementById("hits").innerText = data.Visit_Count)
+							  }
+						</script>
+					
+						<div class="count">Number of visits: <span id="hits"></span></div>
+						<br>
 					<p>&nbsp;&nbsp;&nbsp;Work experience</p>
 					<ul>
 						<p class="tag">BAE Systems (Bootcamp placement)<br><span>Cloud Engineer | <span>Nov 2022 - Feb 2023</span></span></p>
@@ -157,7 +179,7 @@
 						</ul>
 					</ul>
 				</div>
-				<p class="counter">This page has been visited <a id="count"></a> times.</p>
+
 			</div>
 		</div>
 	</body>
