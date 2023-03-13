@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo Building the code
+      - python setup.py build
+  post_build:
+    commands:
+      - echo Pushing the code to GitHub
+      - git remote add origin https://github.com/RaedGithub/AWS-Cloud-Resume.git
+      - git checkout -b main
+      - git add .
+      - git commit -m "Automated build from AWS CodeBuild"
+      - git push --set-upstream origin main
+  deploy:
+    commands:
+      - echo Deploying the code to S3
+      - aws s3 sync build/ s3://raed-cloud-resume/
