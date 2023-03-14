@@ -29,7 +29,9 @@ def lambda_handler(event, context):
       'statusCode': 200,
       'body': visitor_count,
       'headers' : {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*'
       }
               
             }
