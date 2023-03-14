@@ -68,16 +68,16 @@
 				<div class="page">
 					<div id="second">
 						<script>
-							fetch("https://hp7olzeabi.execute-api.us-east-1.amazonaws.com/prod/visitors")
+							fetch('https://hp7olzeabi.execute-api.us-east-1.amazonaws.com/prod/visitors')
 								.then(response => response.json())
-								.then(data => {
-    								document.getElementById('replaceme').innerText = data
+								.then((data) => {
+    								document.getElementById('replaceme').innerText = data.count
 								})
 						</script>
 						
 						<h4>
 							<B>Visitors:</B>
-							<span id="replaceme" >
+							<span id='replaceme' />
 						</h4>
 				</div>
 
