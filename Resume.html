@@ -81,7 +81,7 @@
 								console.log(data);
 								const visitorCountElement = document.getElementById('replaceme');
 								if (visitorCountElement) {
-								visitorCountElement.innerText = data.visitor_count;
+								visitorCountElement.innerText = data.body;
 								} else {
 								console.error('Could not find element with ID "replaceme"');
 								}
@@ -92,7 +92,7 @@
 					</script>
 					<div id="second">
 						<h4>
-							<B>Visitors:</B>
+							<B>Number of visitors:</B>
 							<span id="replaceme" />
 						</h4>
 				</div>
